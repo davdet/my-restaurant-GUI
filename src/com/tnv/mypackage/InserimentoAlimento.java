@@ -39,8 +39,7 @@ public class InserimentoAlimento extends JFrame {
 		});
 	}
 	
-	public InserimentoAlimento() {
-	}
+	public InserimentoAlimento() {}
 	
 	public InserimentoAlimento(boolean cibiBevandeFlag) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -65,7 +64,7 @@ public class InserimentoAlimento extends JFrame {
 			}
 		});
 		nomeAlimento.setToolTipText("Inserisci il nome dell'alimento");
-		nomeAlimento.setBounds(5, 26, 589, 26);
+		nomeAlimento.setBounds(5, 26, 573, 26);
 		nomeAlimento.setColumns(35);
 		contentPane.add(nomeAlimento);
 		
@@ -75,7 +74,7 @@ public class InserimentoAlimento extends JFrame {
 		
 		prezzoAlimento = new JTextField();
 		prezzoAlimento.setToolTipText("Inserisci il prezzo, usa il punto come separatore decimale.");
-		prezzoAlimento.setBounds(5, 78, 589, 26);
+		prezzoAlimento.setBounds(5, 78, 573, 26);
 		prezzoAlimento.setColumns(35);
 		contentPane.add(prezzoAlimento);
 		
@@ -92,7 +91,7 @@ public class InserimentoAlimento extends JFrame {
 			listModel.addElement(item.getNomeAllergene());
 
 		JList<String> listaAllergeni = new JList<String>(listModel);
-		listaAllergeni.setBounds(5, 210, 589, 100);
+		listaAllergeni.setBounds(5, 210, 573, 100);
 		listaAllergeni.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 		listaAllergeni.setLayoutOrientation(JList.VERTICAL_WRAP);
 		listaAllergeni.setVisibleRowCount(-1);
@@ -166,7 +165,7 @@ public class InserimentoAlimento extends JFrame {
 				}
 			}
 		});
-		btnAggiungiAlimento.setBounds(196, 321, 408, 29);
+		btnAggiungiAlimento.setBounds(196, 321, 383, 29);
 		contentPane.add(btnAggiungiAlimento);
 		
 		JButton btnCancella = new JButton("Cancella");

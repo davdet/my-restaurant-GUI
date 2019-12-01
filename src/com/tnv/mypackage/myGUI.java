@@ -106,9 +106,19 @@ public class myGUI {
 		menu.add(mnModifica);
 		
 		JMenuItem mntmCibo = new JMenuItem("Cibo");
+		mntmCibo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				centraFinestra(new ModificaAlimento(true));
+			}
+		});
 		mnModifica.add(mntmCibo);
 		
 		JMenuItem mntmBevanda = new JMenuItem("Bevanda");
+		mntmBevanda.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				centraFinestra(new ModificaAlimento(false));
+			}
+		});
 		mnModifica.add(mntmBevanda);
 		
 		JMenu mnCancella = new JMenu("Cancella");
