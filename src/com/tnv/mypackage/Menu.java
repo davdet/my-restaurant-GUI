@@ -11,6 +11,16 @@ public class Menu {
 		myGUI.update();
 	}
 	
+	public static void modificaAlimento(Alimento a) {
+//		elenco.set(index, element);
+		myGUI.update();
+	}
+	
+	public static void eliminaAlimento(int index) {
+		elenco.remove(index);
+		myGUI.update();
+	}
+	
 	public static int getNumeroBevande() {
 		int counter=0;
 		for(Alimento item:elenco) {

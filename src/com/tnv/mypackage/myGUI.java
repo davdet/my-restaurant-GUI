@@ -108,7 +108,7 @@ public class myGUI {
 		JMenuItem mntmCibo = new JMenuItem("Cibo");
 		mntmCibo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				centraFinestra(new ModificaAlimento(true));
+				centraFinestra(new SelezioneAlimento(true, false));
 			}
 		});
 		mnModifica.add(mntmCibo);
@@ -116,7 +116,7 @@ public class myGUI {
 		JMenuItem mntmBevanda = new JMenuItem("Bevanda");
 		mntmBevanda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				centraFinestra(new ModificaAlimento(false));
+				centraFinestra(new SelezioneAlimento(false, false));
 			}
 		});
 		mnModifica.add(mntmBevanda);
@@ -125,16 +125,26 @@ public class myGUI {
 		menu.add(mnCancella);
 		
 		JMenuItem mntmCibo_1 = new JMenuItem("Cibo");
+		mntmCibo_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				centraFinestra(new SelezioneAlimento(true, true));
+			}
+		});
 		mnCancella.add(mntmCibo_1);
 		
 		JMenuItem mntmBevanda_1 = new JMenuItem("Bevanda");
+		mntmBevanda_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				centraFinestra(new SelezioneAlimento(false, true));
+			}
+		});
 		mnCancella.add(mntmBevanda_1);
 		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Esci");
 		menu.add(mntmNewMenuItem_1);
 	}
 	
-	private void centraFinestra(JFrame ordineFrame) {
+	public static void centraFinestra(JFrame ordineFrame) {
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		double xCenter, yCenter;
 		double screenWidth = screenSize.getWidth();
