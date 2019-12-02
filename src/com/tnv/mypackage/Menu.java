@@ -11,8 +11,8 @@ public class Menu {
 		myGUI.update();
 	}
 	
-	public static void modificaAlimento(Alimento a) {
-//		elenco.set(index, element);
+	public static void modificaAlimento(Alimento a, int index) {
+		elenco.set(index, a);
 		myGUI.update();
 	}
 	

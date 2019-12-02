@@ -76,7 +76,7 @@ public class SelezioneAlimento extends JFrame {
 		btnModificaAlimento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(!modCancFlag)
-					myGUI.centraFinestra(new InserimentoAlimento(cibiBevandeFlag));
+					myGUI.centraFinestra(new InserimentoAlimento(cibiBevandeFlag, Alimento.getAlimentoFromString(listaAlimenti.getSelectedValue(), cibiBevandeFlag)));
 				else {
 					Menu.eliminaAlimento(Alimento.getAlimentoFromString(listaAlimenti.getSelectedValue(), cibiBevandeFlag));
 				}
