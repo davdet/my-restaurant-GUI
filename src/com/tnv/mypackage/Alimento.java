@@ -1,6 +1,7 @@
 package com.tnv.mypackage;
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -151,6 +152,31 @@ public abstract class Alimento {
 		return -1;
 	}
 	
+	public static ArrayList<Alimento> getAlimentiFromStrings(List<String> alimentiStrings) {
+		ArrayList<Alimento> alimenti = new ArrayList<Alimento>();
+		
+		for(String item: alimentiStrings) {
+			for(int i = 0; i < Menu.elenco.size(); i++) {
+				if(item.equals(Menu.elenco.get(i).getNome()))
+					alimenti.add(Menu.elenco.get(i));
+			}
+		}
+		
+		return alimenti;
+	}
+	
+	public static Float getPrezzoAlimentiSelezionati(ArrayList<Alimento> alimenti) {
+		Float prezzo = 0F;
+		for(Alimento item: alimenti)
+			prezzo += item.getPrezzo();
+		
+		return prezzo;
+	}
+	
+	public static Float getPrezzoScontatoAlimentiSelezionati(Float prezzo, Float sconto) {
+		return prezzo - (prezzo * sconto / 100);
+	}
+	
 	//stampa dati alimento a video
 	 public void stampaInfo() {
 		System.out.println("---------------------------------------------------------");
@@ -228,6 +254,33 @@ public abstract class Alimento {
 	static void salvaTuttoSuFile(ArrayList<Alimento> alimenti) {
 		for(Alimento item: alimenti)
 			item.salvaAlimentoSuFile();
+	}
+	
+	static String caricaDaFile() {
+		String path = "listaAlimenti.txt";
+		char[] readIn = new char[1500];
+		try {
+			File file = new File(path);
+			FileReader fr = new FileReader(file);
+			fr.read(readIn);
+			fr.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		String fromFile = new String(readIn);
+		
+		return fromFile;
+	}
+	
+	static void parseAlimenti(String fromFile){
+		String[] alimentiStrings = fromFile.split("\\r?\\n");
+		
+		for(String item: alimentiStrings)
+			if(item.startsWith("[CIB]"))
+				Cibo.parseCibo(item);
+//			else
+//				Bevanda.parseBevanda(item);		
 	}
 
 	/**

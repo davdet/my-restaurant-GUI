@@ -105,13 +105,15 @@ public class Bevanda extends Alimento{
 		try {
 			File file = new File(path);
 			FileWriter fw = new FileWriter(file, true);
-			fw.write("Nome:                    " + getNome() + "\n");
-			fw.write("Prezzo:                  " + getPrezzo() +"€" + "\n");
-			fw.write("Tipo bevanda:            " + getTipo() + "\n");
-			fw.write("Alcolica:                " + getAlcolico() + "\n");
-			fw.write("Elenco allergeni:        " + getElencoAllergeni() + "\n");
-			fw.write("Bevanda per vegani:      " + getVegano() + "\n");
-			fw.write("Bevanda per vegetariani: " + getVegetariano() + "\n");
+			fw.write("[BEV]");
+			fw.write("[NO]" + getNome() + "[/NO]");
+			fw.write("[PR]" + getPrezzo() + "[/PR]");
+			fw.write("[TI]" + getTipo() + "[/TI]");
+			fw.write("[AK]" + getAlcolico() + "[/AK]");
+			fw.write("[AL]" + getElencoAllergeni() + "[/AL]");
+			fw.write("[VG]" + getVegano() + "[/VG]");
+			fw.write("[VT]" + getVegetariano() + "[/VT]");
+			fw.write("[/BEV]\n");
 			fw.flush();
 			fw.close();
 		} catch(IOException e) {

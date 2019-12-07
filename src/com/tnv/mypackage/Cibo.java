@@ -4,6 +4,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Cibo extends Alimento{
 	
@@ -126,18 +128,24 @@ public class Cibo extends Alimento{
 		try {
 			File file = new File(path);
 			FileWriter fw = new FileWriter(file, true);
-			fw.write("Nome:                    " + getNome() + "\n");
-			fw.write("Prezzo:                  " + getPrezzo() +"€" + "\n");
-			fw.write("Tipo di portata:         " + getTipoPortata() + "\n");
-			fw.write("Tipo di cottura:         " + getTipoCottura() + "\n");
-			fw.write("Elenco allergeni:        " + getElencoAllergeni() + "\n");
-			fw.write("Bevanda per vegani:      " + getVegano() + "\n");
-			fw.write("Bevanda per vegetariani: " + getVegetariano() + "\n");
+			fw.write("[CIB]");
+			fw.write("[NO]" + getNome() + "[/NO]");
+			fw.write("[PR]" + getPrezzo() + "[/PR]");
+			fw.write("[PO]" + getTipoPortata() + "[/PO]");
+			fw.write("[CO]" + getTipoCottura() + "[/CO]");
+			fw.write("[AL]" + getElencoAllergeni() + "[/AL]");
+			fw.write("[VG]" + getVegano() + "[/VG]");
+			fw.write("[VT]" + getVegetariano() + "[/VT]");
+			fw.write("[/CIB]\n");
 			fw.flush();
 			fw.close();
 		} catch(IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public static void parseCibo(String ciboString) {
+		System.out.println(ciboString.substring(ciboString.indexOf("[NO]", ciboString.indexOf("[/NO]"))));
 	}
 	
 }

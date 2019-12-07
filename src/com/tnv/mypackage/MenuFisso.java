@@ -3,6 +3,8 @@ package com.tnv.mypackage;
 import java.util.ArrayList;
 
 public class MenuFisso {
+
+	public static ArrayList<MenuFisso> elencoMenuFissi = new ArrayList<MenuFisso>();
 	
 	String nomeMenu;
 	float scontoMenu;

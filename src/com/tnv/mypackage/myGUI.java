@@ -151,13 +151,22 @@ public class myGUI {
 		});
 		mnFile.add(mntnFileSalva);
 		
-		JMenuItem mntnFileCarica = new JMenuItem("Apri");
-		mntnFileCarica.addActionListener(new ActionListener() {
+//		JMenuItem mntnFileCarica = new JMenuItem("Carica");
+//		mntnFileCarica.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				String fromFile = Alimento.caricaDaFile();
+//				Alimento.parseAlimenti(fromFile);
+//			}
+//		});
+//		mnFile.add(mntnFileCarica);
+		
+		JMenuItem mnFisso = new JMenuItem("Menu fisso");
+		mnFisso.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				centraFinestra(new SceltaMenuFisso());
 			}
 		});
-		mnFile.add(mntnFileCarica);
+		menu.add(mnFisso);
 		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Esci");
 		menu.add(mntmNewMenuItem_1);
