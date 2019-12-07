@@ -319,5 +319,4 @@ public class InserimentoAlimento extends JFrame {
 		btnCancella.setBounds(5, 321, 181, 29);
 		contentPane.add(btnCancella);
 	}
-
 }

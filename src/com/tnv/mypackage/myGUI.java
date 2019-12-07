@@ -140,6 +140,25 @@ public class myGUI {
 		});
 		mnCancella.add(mntmBevanda_1);
 		
+		JMenu mnFile = new JMenu("File");
+		menu.add(mnFile);
+		
+		JMenuItem mntnFileSalva = new JMenuItem("Salva");
+		mntnFileSalva.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Alimento.salvaTuttoSuFile(Menu.elenco);
+			}
+		});
+		mnFile.add(mntnFileSalva);
+		
+		JMenuItem mntnFileCarica = new JMenuItem("Apri");
+		mntnFileCarica.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
+		mnFile.add(mntnFileCarica);
+		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Esci");
 		menu.add(mntmNewMenuItem_1);
 	}

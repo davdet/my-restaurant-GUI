@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-public class Alimento {
+public abstract class Alimento {
 
 	protected enum Allergene{
 		ARACHIDI_E_DERIVATI ("Arachidi e derivati"),
@@ -186,40 +186,49 @@ public class Alimento {
 		}
 		
 	// Genera alimento casuale
-	static Alimento generaAlimentoCasuale() {
-			Alimento a = new Alimento();
-			Random random = new Random();
-			
-		    String[] antipasti = {"Salumi", "Formaggi", "Crostini", "Suppl�", "Olive ascolane"};
-		    Float[]  prezzi = {7.0f, 4.5f, 8.0f, 3.5f, 9.0f};
-
-		    a.nome = antipasti[random.nextInt(antipasti.length)];
-		    a.prezzo = prezzi[random.nextInt(prezzi.length)];
-		    a.vegano = random.nextBoolean();
-		    a.vegetariano = random.nextBoolean();
-		    a.elencoAllergeni = generaAllergeniCasuali();
-		    return a;
-		}
+//	static Alimento generaAlimentoCasuale() {
+//			Alimento a = new Alimento();
+//			Random random = new Random();
+//			
+//		    String[] antipasti = {"Salumi", "Formaggi", "Crostini", "Suppl�", "Olive ascolane"};
+//		    Float[]  prezzi = {7.0f, 4.5f, 8.0f, 3.5f, 9.0f};
+//
+//		    a.nome = antipasti[random.nextInt(antipasti.length)];
+//		    a.prezzo = prezzi[random.nextInt(prezzi.length)];
+//		    a.vegano = random.nextBoolean();
+//		    a.vegetariano = random.nextBoolean();
+//		    a.elencoAllergeni = generaAllergeniCasuali();
+//		    return a;
+//		}
 		
-	//implementare una funzione static che permetta la scrittura su file
-	static void salvaAlimentoSuFile(Alimento a){
-				
-			String path = "listaAlimenti.txt";
-			try {
-				File file = new File(path);
-				FileWriter fw = new FileWriter(file, true);
-				fw.write("Nome:                     " + a.getNome() + "\n");
-				fw.write("Prezzo:                   " + a.getPrezzo() +"€" + "\n");
-				fw.write("Elenco allergeni:         " + a.getElencoAllergeni() + "\n");
-				fw.write("Alimento per vegani:      " + a.getVegano() + "\n");
-				fw.write("Alimento per vegetariani: " + a.getVegetariano() + "\n");
-				fw.flush();
-				fw.close();
-				}
-				catch(IOException e) {
-					e.printStackTrace();
-					}
-		}
+//	//implementare una funzione static che permetta la scrittura su file
+//	static void salvaAlimentoSuFile(Alimento a){
+////		if (a instanceof Cibo)
+////			Cibo.salvaAlimentoSuFile(a);
+////		else
+////			Bevanda.salvaAlimentoSuFile(a);
+//			String path = "listaAlimenti.txt";
+//			try {
+//				File file = new File(path);
+//				FileWriter fw = new FileWriter(file, true);
+//				fw.write("Nome:                     " + a.getNome() + "\n");
+//				fw.write("Prezzo:                   " + a.getPrezzo() +"€" + "\n");
+//				fw.write("Elenco allergeni:         " + a.getElencoAllergeni() + "\n");
+//				fw.write("Alimento per vegani:      " + a.getVegano() + "\n");
+//				fw.write("Alimento per vegetariani: " + a.getVegetariano() + "\n");
+//				fw.flush();
+//				fw.close();
+//			} catch(IOException e) {
+//				e.printStackTrace();
+//			}
+//	}
+//	
+	abstract void salvaAlimentoSuFile();
+	
+	static void salvaTuttoSuFile(ArrayList<Alimento> alimenti) {
+		for(Alimento item: alimenti)
+			item.salvaAlimentoSuFile();
+	}
 
 	/**
 	 * Questo metodo genera casualmente un array di 20 alimenti (10 cibi e 10 bevende) 

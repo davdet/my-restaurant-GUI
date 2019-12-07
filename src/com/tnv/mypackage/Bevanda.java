@@ -99,25 +99,24 @@ public class Bevanda extends Alimento{
 	    return b;
 	}
 	
-	static void salvaBevandaSuFile(Bevanda b){
+	public void salvaAlimentoSuFile(){
 		
-		String path = "listaBevande.txt";
+		String path = "listaAlimenti.txt";
 		try {
 			File file = new File(path);
 			FileWriter fw = new FileWriter(file, true);
-			fw.write("Nome:                    " + b.getNome() + "\n");
-			fw.write("Prezzo:                  " + b.getPrezzo() +"€" + "\n");
-			fw.write("Tipo bevanda:            " + b.getTipo() + "\n");
-			fw.write("Alcolica:                " + b.getAlcolico() + "\n");
-			fw.write("Elenco allergeni:        " + b.getElencoAllergeni() + "\n");
-			fw.write("Bevanda per vegani:      " + b.getVegano() + "\n");
-			fw.write("Bevanda per vegetariani: " + b.getVegetariano() + "\n");
+			fw.write("Nome:                    " + getNome() + "\n");
+			fw.write("Prezzo:                  " + getPrezzo() +"€" + "\n");
+			fw.write("Tipo bevanda:            " + getTipo() + "\n");
+			fw.write("Alcolica:                " + getAlcolico() + "\n");
+			fw.write("Elenco allergeni:        " + getElencoAllergeni() + "\n");
+			fw.write("Bevanda per vegani:      " + getVegano() + "\n");
+			fw.write("Bevanda per vegetariani: " + getVegetariano() + "\n");
 			fw.flush();
 			fw.close();
-			}
-			catch(IOException e) {
-				e.printStackTrace();
-				}
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

@@ -1,0 +1,21 @@
+Nome:                    poker de cazzi
+Prezzo:                  12.0€
+Tipo di portata:         ANTIPASTO
+Tipo di cottura:         BASSA
+Elenco allergeni:        [MOLLUSCHI]
+Bevanda per vegani:      false
+Bevanda per vegetariani: false
+Nome:                    coppia de frosci
+Prezzo:                  12.0€
+Tipo di portata:         SECONDO
+Tipo di cottura:         BASSA
+Elenco allergeni:        [CROSTACEI, LUPINI, ANIDRIDE_SOLFOROSA_E_SOLFITI, UOVA_E_DERIVATI]
+Bevanda per vegani:      false
+Bevanda per vegetariani: true
+Nome:                    full de bocchini
+Prezzo:                  22.0€
+Tipo bevanda:            VINO
+Alcolica:                true
+Elenco allergeni:        [PESCE]
+Bevanda per vegani:      false
+Bevanda per vegetariani: true

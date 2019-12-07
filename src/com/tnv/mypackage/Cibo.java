@@ -120,25 +120,24 @@ public class Cibo extends Alimento{
 	}
 	
 	//implementare una funzione static che permetta la scrittura su file
-	static void salvaCiboSuFile(Cibo c){
+	public void salvaAlimentoSuFile(){
 		
-		String path = "listaCibi.txt";
+		String path = "listaAlimenti.txt";
 		try {
 			File file = new File(path);
 			FileWriter fw = new FileWriter(file, true);
-			fw.write("Nome:                    " + c.getNome() + "\n");
-			fw.write("Prezzo:                  " + c.getPrezzo() +"€" + "\n");
-			fw.write("Tipo di portata:         " + c.getTipoPortata() + "\n");
-			fw.write("Tipo di cottura:         " + c.getTipoCottura() + "\n");
-			fw.write("Elenco allergeni:        " + c.getElencoAllergeni() + "\n");
-			fw.write("Bevanda per vegani:      " + c.getVegano() + "\n");
-			fw.write("Bevanda per vegetariani: " + c.getVegetariano() + "\n");
+			fw.write("Nome:                    " + getNome() + "\n");
+			fw.write("Prezzo:                  " + getPrezzo() +"€" + "\n");
+			fw.write("Tipo di portata:         " + getTipoPortata() + "\n");
+			fw.write("Tipo di cottura:         " + getTipoCottura() + "\n");
+			fw.write("Elenco allergeni:        " + getElencoAllergeni() + "\n");
+			fw.write("Bevanda per vegani:      " + getVegano() + "\n");
+			fw.write("Bevanda per vegetariani: " + getVegetariano() + "\n");
 			fw.flush();
 			fw.close();
-			}
-			catch(IOException e) {
-				e.printStackTrace();
-				}
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 }
