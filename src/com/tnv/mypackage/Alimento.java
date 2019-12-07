@@ -143,14 +143,12 @@ public class Alimento {
 	}
 	
 	public static int getAlimentoFromString(String nomeAlimento, boolean cibiBevandeFlag) {
-		int returnThis = -1;
-		
 		for(int i = 0; i < Menu.elenco.size(); i++)
 			if(nomeAlimento.equals(Menu.elenco.get(i).getNome()))
 				if((cibiBevandeFlag && Menu.elenco.get(i) instanceof Cibo) || (!cibiBevandeFlag && Menu.elenco.get(i) instanceof Bevanda))
-					returnThis = i;
+					return i;
 		
-		return returnThis;
+		return -1;
 	}
 	
 	//stampa dati alimento a video

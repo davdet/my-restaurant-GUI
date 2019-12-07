@@ -25,21 +25,6 @@ public class InserimentoAlimento extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField nomeAlimento, prezzoAlimento;
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					InserimentoAlimento frame = new InserimentoAlimento();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-	
-	public InserimentoAlimento() {}
 	
 	public InserimentoAlimento(boolean cibiBevandeFlag) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -140,28 +125,33 @@ public class InserimentoAlimento extends JFrame {
 		btnAggiungiAlimento.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if(cibiBevandeFlag) {
-					Cibo cibo = new Cibo();
-					cibo.setNome(nomeAlimento.getText());
-					cibo.setPrezzo(Float.parseFloat(prezzoAlimento.getText()));
-					cibo.setVegano(chckbxVegan.isSelected());	
-					cibo.setVegetariano(chckbxVegetariano.isSelected());
-					cibo.setElencoAllergeni(cibo.getAllergeniFromStrings(listaAllergeni.getSelectedValuesList()));
-					cibo.setTipoPortata((Cibo.Portata) comboPortata.getSelectedItem());
-					cibo.setTipoCottura((Cibo.Cottura) comboCottura.getSelectedItem());
-					JDialog dialogConferma= new TestDialog("alimento", cibo);
-					dialogConferma.setVisible(true);
-				} else {
-					Bevanda bevanda = new Bevanda();
-					bevanda.setNome(nomeAlimento.getText());
-					bevanda.setPrezzo(Float.parseFloat(prezzoAlimento.getText()));
-					bevanda.setVegano(chckbxVegan.isSelected());	
-					bevanda.setVegetariano(chckbxVegetariano.isSelected());
-					bevanda.setElencoAllergeni(bevanda.getAllergeniFromStrings(listaAllergeni.getSelectedValuesList()));
-					bevanda.setAlcolico(chckbxAlcolico.isSelected());
-					bevanda.setTipo((Bevanda.Tipo) comboTipoBevanda.getSelectedItem());
-					JDialog dialogConferma= new TestDialog("alimento", bevanda);
-					dialogConferma.setVisible(true);
+				try {
+					if(cibiBevandeFlag) {
+						Cibo cibo = new Cibo();
+						cibo.setNome(nomeAlimento.getText());
+						cibo.setPrezzo(Float.parseFloat(prezzoAlimento.getText()));
+						cibo.setVegano(chckbxVegan.isSelected());	
+						cibo.setVegetariano(chckbxVegetariano.isSelected());
+						cibo.setElencoAllergeni(cibo.getAllergeniFromStrings(listaAllergeni.getSelectedValuesList()));
+						cibo.setTipoPortata((Cibo.Portata) comboPortata.getSelectedItem());
+						cibo.setTipoCottura((Cibo.Cottura) comboCottura.getSelectedItem());
+						JDialog dialogConferma= new TestDialog("alimento", cibo);
+						dialogConferma.setVisible(true);
+					} else {
+						Bevanda bevanda = new Bevanda();
+						bevanda.setNome(nomeAlimento.getText());
+						bevanda.setPrezzo(Float.parseFloat(prezzoAlimento.getText()));
+						bevanda.setVegano(chckbxVegan.isSelected());	
+						bevanda.setVegetariano(chckbxVegetariano.isSelected());
+						bevanda.setElencoAllergeni(bevanda.getAllergeniFromStrings(listaAllergeni.getSelectedValuesList()));
+						bevanda.setAlcolico(chckbxAlcolico.isSelected());
+						bevanda.setTipo((Bevanda.Tipo) comboTipoBevanda.getSelectedItem());
+						JDialog dialogConferma= new TestDialog("alimento", bevanda);
+						dialogConferma.setVisible(true);
+					}
+				} catch (Exception exc) {
+					JDialog dialogError = new ErrorDialog("Errore: controlla i valori inseriti.");
+					dialogError.setVisible(true);
 				}
 			}
 		});
@@ -282,28 +272,33 @@ public class InserimentoAlimento extends JFrame {
 		btnAggiungiAlimento.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if(cibiBevandeFlag) {
-					Cibo cibo = new Cibo();
-					cibo.setNome(nomeAlimento.getText());
-					cibo.setPrezzo(Float.parseFloat(prezzoAlimento.getText()));
-					cibo.setVegano(chckbxVegan.isSelected());	
-					cibo.setVegetariano(chckbxVegetariano.isSelected());
-					cibo.setElencoAllergeni(cibo.getAllergeniFromStrings(listaAllergeni.getSelectedValuesList()));
-					cibo.setTipoPortata((Cibo.Portata) comboPortata.getSelectedItem());
-					cibo.setTipoCottura((Cibo.Cottura) comboCottura.getSelectedItem());
-					JDialog dialogConferma= new TestDialog("alimento", cibo, index);
-					dialogConferma.setVisible(true);
-				} else {
-					Bevanda bevanda = new Bevanda();
-					bevanda.setNome(nomeAlimento.getText());
-					bevanda.setPrezzo(Float.parseFloat(prezzoAlimento.getText()));
-					bevanda.setVegano(chckbxVegan.isSelected());	
-					bevanda.setVegetariano(chckbxVegetariano.isSelected());
-					bevanda.setElencoAllergeni(bevanda.getAllergeniFromStrings(listaAllergeni.getSelectedValuesList()));
-					bevanda.setAlcolico(chckbxAlcolico.isSelected());
-					bevanda.setTipo((Bevanda.Tipo) comboTipoBevanda.getSelectedItem());
-					JDialog dialogConferma= new TestDialog("alimento", bevanda, index);
-					dialogConferma.setVisible(true);
+				try {
+					if(cibiBevandeFlag) {
+						Cibo cibo = new Cibo();
+						cibo.setNome(nomeAlimento.getText());
+						cibo.setPrezzo(Float.parseFloat(prezzoAlimento.getText()));
+						cibo.setVegano(chckbxVegan.isSelected());	
+						cibo.setVegetariano(chckbxVegetariano.isSelected());
+						cibo.setElencoAllergeni(cibo.getAllergeniFromStrings(listaAllergeni.getSelectedValuesList()));
+						cibo.setTipoPortata((Cibo.Portata) comboPortata.getSelectedItem());
+						cibo.setTipoCottura((Cibo.Cottura) comboCottura.getSelectedItem());
+						JDialog dialogConferma= new TestDialog("alimento", cibo, index);
+						dialogConferma.setVisible(true);
+					} else {
+						Bevanda bevanda = new Bevanda();
+						bevanda.setNome(nomeAlimento.getText());
+						bevanda.setPrezzo(Float.parseFloat(prezzoAlimento.getText()));
+						bevanda.setVegano(chckbxVegan.isSelected());	
+						bevanda.setVegetariano(chckbxVegetariano.isSelected());
+						bevanda.setElencoAllergeni(bevanda.getAllergeniFromStrings(listaAllergeni.getSelectedValuesList()));
+						bevanda.setAlcolico(chckbxAlcolico.isSelected());
+						bevanda.setTipo((Bevanda.Tipo) comboTipoBevanda.getSelectedItem());
+						JDialog dialogConferma= new TestDialog("alimento", bevanda, index);
+						dialogConferma.setVisible(true);
+					}
+				} catch (Exception exc) {
+					JDialog dialogError = new ErrorDialog("Errore: controlla i valori inseriti.");
+					dialogError.setVisible(true);
 				}
 			}
 		});
@@ -324,4 +319,5 @@ public class InserimentoAlimento extends JFrame {
 		btnCancella.setBounds(5, 321, 181, 29);
 		contentPane.add(btnCancella);
 	}
+
 }

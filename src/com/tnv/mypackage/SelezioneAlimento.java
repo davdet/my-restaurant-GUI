@@ -1,6 +1,5 @@
 package com.tnv.mypackage;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,33 +13,10 @@ import javax.swing.JPanel;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.EmptyBorder;
 
-import com.tnv.mypackage.Alimento.Allergene;
-
 public class SelezioneAlimento extends JFrame {
 
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					SelezioneAlimento frame = new SelezioneAlimento();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	public SelezioneAlimento() {}
-	
-	/**
-	 * Create the frame.
-	 */
 	public SelezioneAlimento(boolean cibiBevandeFlag, boolean modCancFlag) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 600, 400);
@@ -77,9 +53,9 @@ public class SelezioneAlimento extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(!modCancFlag)
 					myGUI.centraFinestra(new InserimentoAlimento(cibiBevandeFlag, Alimento.getAlimentoFromString(listaAlimenti.getSelectedValue(), cibiBevandeFlag)));
-				else {
+				else
 					Menu.eliminaAlimento(Alimento.getAlimentoFromString(listaAlimenti.getSelectedValue(), cibiBevandeFlag));
-				}
+				setVisible(false);
 			}
 		});
 		contentPane.add(btnModificaAlimento);

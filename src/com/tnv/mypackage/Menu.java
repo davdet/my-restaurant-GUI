@@ -21,6 +21,14 @@ public class Menu {
 		myGUI.update();
 	}
 	
+	public static void salvaSuFile(ArrayList<Alimento> alimenti) {
+		String path = "ordine.txt";
+		
+		for(Alimento item: alimenti) {
+			
+		}
+	}
+	
 	public static int getNumeroBevande() {
 		int counter=0;
 		for(Alimento item:elenco) {
